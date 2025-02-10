@@ -36,8 +36,8 @@ jobs:
 
       - name: Get Docker Image Details
         run: |
-          app_name=$(jq -r '.name' package.json)
-          app_version=$(jq -r '.version' package.json)
+          app_name=$(jq -r '.name' package-lock.json)
+          app_version=$(jq -r '.version' package-lock.json)
 
           echo "app_name: $app_name"
           echo "app_version: $app_version"
