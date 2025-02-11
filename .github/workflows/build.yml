@@ -47,9 +47,8 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v6
         with:
-          push: ${{ github.ref == 'refs/heads/master' }}
+          push: true
           platforms: linux/amd64,linux/arm64
-          load: true
           context: .
           file: ./Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.app_name }}:${{ env.app_version }}
