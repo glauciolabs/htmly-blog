@@ -45,9 +45,10 @@ jobs:
           echo "app_name=$app_name" >> $GITHUB_ENV
 
       - name: Build image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           push: ${{ github.ref == 'refs/heads/master' }}
+          platforms: linux/amd64,linux/arm64
           load: true
           context: .
           file: ./Dockerfile
@@ -76,7 +77,7 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CODE_TOKEN }}
         with:
           tag_name: v${{ env.app_version }}
           body: |
