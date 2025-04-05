@@ -58,7 +58,6 @@ jobs:
     name: create tag and release
     needs: [docker_build_and_push]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
