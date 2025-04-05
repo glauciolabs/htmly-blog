@@ -1,8 +1,8 @@
-FROM php:8.2.27-apache
+FROM php:8.2.28-apache-bullseye
 
 MAINTAINER glauciolabs
 
-ARG htmly_version=v3.0.3
+ARG htmly_version=v3.0.7
 
 RUN apt-get update && apt-get install -y \
     libpng-dev libjpeg-dev libfreetype6-dev libzip-dev zip unzip libonig-dev libxml2-dev wget git \
